@@ -19,6 +19,7 @@ import db from "../lib/firebase";
 const AddNewPost = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [title, setTitle] = useState("");
+  const [description,setDescription]=useState("")
   const [isSaving, setSaving] = useState(false);
 
   const handleSubmit = async () => {
@@ -28,6 +29,7 @@ const AddNewPost = () => {
 
     await db.collection("posts").add({
       title,
+      description,
       upVotesCount: 0,
       downVotesCount: 0,
       createdAt: date.toUTCString(),
@@ -36,6 +38,7 @@ const AddNewPost = () => {
 
     onClose();
     setTitle("");
+    setDescription("");
     setSaving(false);
   };
 
@@ -57,6 +60,15 @@ const AddNewPost = () => {
                   type="post-title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
+                />
+              </FormControl>
+
+              <FormControl id="post-description">
+                <FormLabel>Post Description</FormLabel>
+                <Textarea
+                  type="post-description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                 />
               </FormControl>
             </ModalBody>

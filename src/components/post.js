@@ -8,6 +8,7 @@ const Post = ({ post }) => {
       <VoteButtons post={post} />
       <Box bg="gray.100" p={4} rounded="md" w="100%">
         <Text>{post.title}</Text>
+        <Text>{post.description}</Text>
       </Box>
     </HStack>
   );

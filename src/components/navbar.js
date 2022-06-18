@@ -1,4 +1,4 @@
-import { Box, Container, Flex } from "@chakra-ui/core";
+import { Box, Container, Flex,Text } from "@chakra-ui/core";
 import React from "react";
 import AddNewPost from "./add-new-post";
 
